@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>水平伸缩导航菜单（原生js）</title>
+<style type="text/css">
+*{margin:0; padding:0; font-size:14px;}
+a{color:#333;text-decoration:none}
+.nav{list-style:none; height:30px; border-bottom:10px solid #F60; margin-top:20px; padding-left:50px;}
+.nav li{float:left}
+.nav li a{display:block; height:30px;text-align:center; line-height:30px; width:80px; background:#efefef; margin-left:1px;}
+.nav li a.on, .nav li a:hover{background:#F60;color:#fff; }
+</style>
+
+<script>
+window.onload=function(){
+	var oNav=document.getElementsByTagName('ul')[0];
+	var aA=oNav.getElementsByTagName('a');
+	//for循环是遍历每一个a标签，并添加相应的onmouseover事件的。
+	for(var i=0; i<aA.length; i++){
+		//写鼠标移上去的动画部分
+		aA[i].onmouseover=function(){
+			if(this.className!="on"){
+				clearInterval(this.timer);
+				var This=this; //this表示当前的a标签
+				This.time=setInterval(function(){     //控制菜单的宽度
+					This.style.width=This.offsetWidth+8+"px"; //offsetWidth表示当前宽度,8是变宽的速度
+					if(This.offsetWidth>=120)  //做一个判断，延伸到一定宽度就要停下了，不然就会一直延伸下去
+					clearInterval(This.time);
+				},30)
+			}
+		}
+		//写鼠标移出的动画部分
+		aA[i].onmouseout=function(){  
+			if(this.className!="on"){
+				clearInterval(this.time);
+				var This=this;
+				this.time=setInterval(function(){
+					This.style.width=This.offsetWidth-8+"px";
+					if(This.offsetWidth<=80){
+						This.style.width='80px';
+						clearInterval(This.time);
+					}
+				},30)
+			}
+		}
+	}
+}
+</script>
+
+
+</head>
+<body>
+
+<ul class="nav">
+    <li><a class="on" href="#">首　　页</a></li>
+    <li><a href="#">关于我们</a></li>
+    <li><a href="#">产品展示</a></li>
+    <li><a href="#">售后服务</a></li>
+    <li><a href="#">联系我们</a></li>
+  </ul>
+
+</body>
+</html>
