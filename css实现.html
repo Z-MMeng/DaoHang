@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css制作商城类导航</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		.one{list-style-type: none;margin-left: 20px; width: 300px;border:2px solid #A30005;}
+		a{text-decoration: none;}
+		.top{
+			width: 100%;
+			height: 50px;
+			line-height: 50px;
+			background-color: #E3393D;
+			text-indent: 20px;
+			font-size: 20px;
+			color: #fff;
+			font-weight: bold;
+		}
+		.one li{
+			height: 35px;
+			line-height: 35px;
+			text-indent: 15px;
+			z-index: 3;
+			background-image: url(http://img.mukewang.com/5411027300014f0200220030.jpg);
+			background-repeat: no-repeat;
+			background-position: right;
+		}
+		.one li span{float: right;padding-right: 10px;}
+		.one li a{
+			color: #000;
+		}
+		.one li a:hover{
+			text-decoration: underline;
+			color: #E3393D;
+		}
+		.one li:hover{
+			background-image: none;
+			border: 1px solid #ddd;
+			border-left: 0;
+			box-shadow: 0 0 8px #ddd;
+			-moz-box-shadow: 0 0 8px #ddd;
+			-webkit-box-shadow: 0 0 8px #ddd;
+		}
+		.sub{
+			display: none;
+			width: 715px;
+			position: absolute;
+			left: 322px;
+			top: 52px;
+			border: 1px solid #ddd;
+			z-index: 4;
+			background-color: #fff;
+			box-shadow: 0 0 8px #ddd;
+			-moz-box-shadow: 0 0 8px #ddd;
+			-webkit-box-shadow: 0 0 8px #ddd;
+		}
+		.subleft{
+			float: left;
+			width: 500px;
+			padding: 10px 0;
+		}
+		.subright{
+			float: right;
+			width: 200px;
+		}
+		.one li:hover .sub{
+			display: block;
+		}
+		.one li:hover span{     /*定义一个span标签，给左侧边框那覆盖一个白色的块，达到一个缺口效果*/
+			background-color: #fff;
+			display: inline-block;  /*避免换行，让他和li在同一行*/
+			z-index: 5;
+			width: 20px;
+			height: 35px;
+			float: right;
+			margin-right: -5px;
+			position: relative;
+		}
+		.subleft dl{
+			display: block;
+			border-bottom: 1px solid #eee;
+			padding-bottom: 6px;
+			overflow: hidden;
+		}
+		.subleft dl dt{
+			display: block;
+			float: left;
+			width: 80px;
+			text-align: right;
+			height: 22px;
+			line-height: 22px;
+			padding-right: 6px;
+		}
+		.subleft dl dt a{
+			color: #e4393c;
+			font-weight: bold;
+			text-decoration: underline;
+			font-size: 14px;
+		}
+		.subleft dl dd{
+			display: block;
+			overflow: hidden;
+		}
+		.subleft dl dd a{
+			display: block;
+			float: left;
+			border-left: 1px solid #ccc; /*加个竖线*/
+			color: #737373;
+			font-size: 12px;
+			padding: 0 8px;  /*设置左右间距*/
+			height: 15px;     
+			line-height: 15px; /*让dt和dd对齐*/
+			margin: 4px 0; /*增大行间距，竖线分开（两行以上的）*/
+		}
+		.subright dl dd{
+            margin: 3px 0;
+        }
+        .subright dl dt{
+            color: #e4393c;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .subright dl dd a{
+            font-size: 9pt;
+            color: #737373;
+            line-height: 22px;
+        }
+        .subright dl dd a:hover{
+            color: #737373;
+            font-weight: normal;
+        }
+	</style>
+</head>
+<body>
+	<ul class="one">
+		<div class="top">
+			全部商品分类
+		</div>
+		<li><a href="#">图书</a>、<a href="#">音像</a>、<a href="#">数字产品</a><span></span>
+			<div class="sub">
+			<!--左侧二级分类采用dl标签-->
+				<div class="subleft">
+					<dl>
+						<dt><a href="#">电子书</a></dt>
+						<dd>
+							<a href="#">免费</a><a href="#">小说</a> <a href="#">励志与成功</a> <a href="#">婚恋/两性</a><a href="#">文学</a> <a href="#">经管</a> <a href="#">畅读VIP</a>
+						</dd>
+					</dl>
+					<dl>
+                        <dt><a href="#">数字音乐</a></dt>
+                        <dd>
+                            <a href="#">通俗流行</a> <a href="#">古典音乐</a> <a href="#">摇滚说唱</a> <a href="#">爵士蓝调</a><a href="#">乡村民谣</a> <a href="#">有声读物</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><a href="#">音像</a></dt>
+                        <dd>
+                            <a href="#">音乐</a> <a href="#">影视</a> <a href="#">教育音像</a> <a href="#">游戏</a>
+                        </dd>
+                    </dl>
+				</div>
+				<div class="subright">
+					<dl>
+						<dd>
+							<a href="http://sale.jd.com/act/1XDZ6ShE5M7tTrl.html">
+                                <img src="http://img30.360buyimg.com/erpVCAare/g16/M00/0B/1B/rBEbRlOCFcoIAAAAAAArMNB2tlkAACTlwDgVG8AACtI514.jpg"
+                                    width="180" height="70" title="\家电">
+                            </a>
+						</dd>
+						<dd>
+							<a href="http://sale.jd.com/act/v8kJIaPmsMGuebpH.html">
+                                <img src="http://img30.360buyimg.com/erpVCAare/g16/M00/0B/19/rBEbRlOAiHUIAAAAAAAx8X2c6oIAACTCAP56A4AADIJ112.jpg"
+                                    width="180" height="70" title="小家电--三请聚宝盆">
+                            </a>
+						</dd>
+					</dl>
+					<dl>
+						<dt>推荐品牌</dt>
+						<dd><a href="#">美的官方旗舰店</a></dd>
+						<dd><a href="#">苏泊尔旗舰店</a></dd>
+                        <dd><a href="#">九阳旗舰店</a></dd>
+                        <dd><a href="#">东菱旗舰店</a></dd>
+                        <dd><a href="#">海尔统帅旗舰店</a></dd>
+                        <dd><a href="#">小熊旗舰店</a></dd>
+					</dl>
+				</div>
+			</div>
+		</li>
+		<li><a href="#">家用电器</a><span></span></li>
+		<li><a href="#">手机</a>、<a href="#">数码</a><span></span></li>
+		<li><a href="#">电脑</a>、<a href="#">办公</a><span></span></li>
+		<li><a href="#">家居</a>、<a href="#">家具</a>、<a href="#">家装</a>、<a href="#">厨具</a><span></span></li>
+	</ul>
+</body>
+</html>
