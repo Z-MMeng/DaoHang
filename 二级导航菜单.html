@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>二级导航菜单</title>
+<style type="text/css">
+* { margin: 0; padding: 0; font-size: 14px; }
+a { color: #333; text-decoration: none }
+ul{ list-style: none; }
+.nav {height: 30px; border-bottom: 5px solid #F60; margin-left:50px; width:600px;}
+.nav li { float: left; position:relative; height:30px; width:120px }
+.nav li a { display: block; height: 30px; text-align: center; line-height: 30px; width:120px; background: #efefef; margin-left: 1px; }
+.subNav{ position:absolute; top:30px; left:0; width:120px; height:0; overflow:hidden}
+.subNav li a{ background:#ddd }
+.subNav li a:hover{ background:#efefef}
+</style>
+<script>
+window.onload=function(){
+    var aLi=document.getElementsByTagName('li');
+    for(var i=0; i<aLi.length; i++){
+        //鼠标移入菜单，二级菜单动画下拉显示出来
+	    aLi[i].onmouseover=function(){
+            var oSubNav=this.getElementsByTagName('ul')[0];
+            if(oSubNav){
+            var This=oSubNav;
+            clearInterval(This.time);
+            This.time=setInterval(function(){
+                    This.style.height=This.offsetHeight+16+"px";
+                    if(This.offsetHeight>=120)
+                    clearInterval(This.time);
+                },30)
+             }
+          }
+        //鼠标离开菜单，二级菜单动画收缩起来。		
+	    aLi[i].onmouseout=function(){
+            var oSubNav=this.getElementsByTagName('ul')[0];
+            if(oSubNav){
+            var This=oSubNav;
+            clearInterval(This.time);
+            This.time=setInterval(function(){
+                    This.style.height=This.offsetHeight-16+"px";
+                    if(This.offsetHeight<=0)
+                    clearInterval(This.time);
+                },30)
+             }
+          }
+		
+	}
+}
+/*
+这个和水平伸缩的那个是相似的，只不过水平的改变的是宽度，这个改变的是高度。我们让一级菜单水平排列，让二级菜单垂直排列，并且将二级菜单隐藏，绝对定位到所选菜单之下。之后我们就开始用js制作鼠标移入移出时发生的动画效果，鼠标移入时，我们想让二级菜单有一定的速度缓慢下拉显示，并且向下延伸的高度是一定的，延伸动作和速度控制都可以用setInterval来实现，延伸可以写一个匿名函数，让他获取当前高度并改变成我们想要的高度，这个时候就必须有个判断，当高度达到一定的值就要停止延伸了；然后设定一个速度就ok了。鼠标移出是，思路一致，只是高度值相反而已。
+*/
+</script>
+</head>
+<body>
+<ul class="nav">
+    <li><a href="#">一级菜单</a>
+    	<ul class="subNav">
+        	<li><a href="#">二级菜单</a></li>
+            <li><a href="#">二级菜单</a></li>
+            <li><a href="#">二级菜单</a></li>
+            <li><a href="#">二级菜单</a></li>
+        </ul>
+    </li>
+    <li><a href="#">一级菜单</a>
+    	<ul class="subNav">
+        	<li><a href="#">二级菜单</a></li>
+            <li><a href="#">二级菜单</a></li>
+            <li><a href="#">二级菜单</a></li>
+            <li><a href="#">二级菜单</a></li>
+        </ul>
+    </li>
+    <li><a href="#">一级菜单</a></li>
+    <li><a href="#">一级菜单</a></li>
+    <li><a href="#">一级菜单</a></li>
+</ul>
+</body>
+</html>
