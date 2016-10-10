@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>导航菜单</title>
+<style type="text/css">
+*{margin:0; padding:0; font-size:14px;}
+a{color:#333;text-decoration:none}
+ul{
+	list-style:none; 
+	height:30px; /*必须设置高度，不然border在顶部*/
+	/*菜单<li>浮动后，<li>脱离文档流，导致<ul>将失去高度和宽度；如果需要对<ul>进行整体背景设置，首先要给<ul>定义宽、高。*/
+	border-bottom:10px solid #F60; 
+	margin-top:20px;  /*菜单向下移动*/
+	padding-left:50px;/*菜单向左移动*/
+}
+ul li{
+	float:left;
+}
+ul li a{
+	display:block; 
+	height:30px;
+	text-align:center; 
+	line-height:30px; 
+	width:120px; 
+	background:url(btnBg.png); /*圆角背景*/
+	margin-left:1px; /*设置导航之间有1px的距离，不设置时是靠在一起的*/
+}
+ul li a.on, ul li a:hover{ 
+	background-position:0 -30px;  /*背景上移30px*/
+	color:#fff;
+}
+</style>
+
+</head>
+<body>
+
+<ul>
+    <li><a class="on" href="#">首　　页</a></li>
+    <li><a href="#">关于我们</a></li>
+    <li><a href="#">产品展示</a></li>
+    <li><a href="#">售后服务</a></li>
+    <li><a href="#">联系我们</a></li>
+  </ul>
+
+</body>
+</html>
